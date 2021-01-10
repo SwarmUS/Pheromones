@@ -1,13 +1,27 @@
+set(LIB_NAME "pheromones-example")
+set(LIB_ALIAS "Pheromones::Example")
+
 nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS example.proto)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
 set_source_files_properties(${PROTO_SRCS} ${PROTO_HDRS}
     PROPERTIES GENERATED TRUE)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -g -O0")
+add_library(${LIB_NAME} STATIC ${PROTO_SRCS} ${PROTO_HDRS})
+add_library(${LIB_ALIAS} ALIAS ${LIB_NAME})
 
-add_executable(example example.c ${PROTO_SRCS} ${PROTO_HDRS})
-target_link_libraries(example
-  PUBLIC
+target_include_directories(${LIB_NAME}
+    PUBLIC
+        ${NANOPB_INCLUDE_DIRS})
+
+target_link_libraries(${LIB_NAME}
     protobuf-nanopb-static)
 
-include_directories(${NANOPB_INCLUDE_DIRS})
+
+# Just an example on how to use the created lib
+add_executable(example example.c ${PROTO_SRCS} ${PROTO_HDRS})
+target_link_libraries(example
+    PUBLIC
+        Pheromones::Example)
+
+
