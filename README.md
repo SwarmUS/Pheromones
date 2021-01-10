@@ -17,6 +17,6 @@ make
 ```
 ## Usage
 
-This project is meant to be used as a library for other project. As a submodule or a cmake external project.
+This project is meant to be used as a library for other project to allow serialization/deserialization. Use as a submodule or a cmake external project on the user code.
  
-An example is provided for now with the usage of the generated file.
+An example is provided with the usage of the library.
