@@ -1,4 +1,4 @@
-#include "simple.pb.h"
+#include "example.pb.h"
 #include <pb_decode.h>
 #include <pb_encode.h>
 #include <stdio.h>
