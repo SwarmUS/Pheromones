@@ -1,0 +1,26 @@
+
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-native:
+    runs-on: ubuntu-20.04
+    container:
+      image: swarmus/embedded
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: prepare
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+
+      - name: build
+        run: |
+          make -j

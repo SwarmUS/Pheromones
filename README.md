@@ -3,7 +3,7 @@ A repo that regroup SwarmUS communication messages with protobuf.
 
 
 ## Requirements
-* `protoc` to compile .proto files, on ubuntu 20.04 you can install it using `apt install protobuf-compile`
+* `protoc` to compile .proto files, on ubuntu 20.04 you can install it using `apt install protobuf-compiler`
 
 ## Building 
 You can build the project using those commands
