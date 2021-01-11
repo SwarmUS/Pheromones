@@ -22,6 +22,6 @@ target_link_libraries(${LIB_NAME}
 add_executable(example example.c ${PROTO_SRCS} ${PROTO_HDRS})
 target_link_libraries(example
     PUBLIC
-        Pheromones::Example)
+        SwarmUS::Pheromones::Example)
 
 
