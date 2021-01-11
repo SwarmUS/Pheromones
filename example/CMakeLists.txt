@@ -1,5 +1,5 @@
-set(LIB_NAME "pheromones-example")
-set(LIB_ALIAS "Pheromones::Example")
+set(LIB_NAME "swarmus-pheromones-example")
+set(LIB_ALIAS "SwarmUS::Pheromones::Example")
 
 nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS example.proto)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
