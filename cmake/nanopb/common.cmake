@@ -19,7 +19,7 @@ function(nanopb_fetch)
     set(NANOPB nanopb)
     string(TOLOWER ${NANOPB} NANOPB_L)
 
-    FetchContent_GetProperties(NANOPB POPULATED NANOPB_POPULATED)
+    FetchContent_GetProperties(${NANOPB} POPULATED NANOPB_POPULATED)
     if(NOT NANOPB_POPULATED)
         message("Cloning nanopb library")
         set(FETCHCONTENT_QUIET FALSE) # To see progress
