@@ -1,9 +1,13 @@
-set(LIB_NAME "swarmus-pheromones-example")
-set(LIB_ALIAS "SwarmUS::Pheromones::Example")
+set(LIB_NAME "swarmus-pheromones-hivemind-host")
+set(LIB_ALIAS "SwarmUS::Pheromones::HiveMind::Host")
 
 list(APPEND PHEROMONES_LIB_LIST ${LIB_NAME})
 
-nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS example.proto)
+nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
+  generic.proto
+  function-call.proto
+  request.proto
+  )
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set_source_files_properties(${PROTO_SRCS} ${PROTO_HDRS}
@@ -18,12 +22,5 @@ target_include_directories(${LIB_NAME}
 
 target_link_libraries(${LIB_NAME}
     protobuf-nanopb-static)
-
-
-# Just an example on how to use the created lib
-add_executable(example example.c ${PROTO_SRCS} ${PROTO_HDRS})
-target_link_libraries(example
-    PUBLIC
-        SwarmUS::Pheromones::Example)
 
 

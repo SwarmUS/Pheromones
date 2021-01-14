@@ -25,7 +25,8 @@ function(nanopb_fetch)
         set(FETCHCONTENT_QUIET FALSE) # To see progress
         FetchContent_Populate(${NANOPB})
     endif()
-    add_subdirectory(${${NANOPB_L}_SOURCE_DIR})
+    add_subdirectory(${${NANOPB_L}_SOURCE_DIR} ${${NANOPB_L}_BINARY_DIR})
+
     list(APPEND CMAKE_MODULE_PATH ${${NANOPB_L}_SOURCE_DIR}/extra)
     set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} PARENT_SCOPE)
     set(NANOPB_PATH ${${NANOPB_L}_SOURCE_DIR} PARENT_SCOPE)
