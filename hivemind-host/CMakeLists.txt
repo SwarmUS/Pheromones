@@ -1,13 +1,12 @@
 set(LIB_NAME "swarmus-pheromones-hivemind-host")
 set(LIB_ALIAS "SwarmUS::Pheromones::HiveMind::Host")
 
-list(APPEND PHEROMONES_LIB_LIST ${LIB_NAME})
-
 nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
   generic.proto
   function-call.proto
   request.proto
-  )
+)
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set_source_files_properties(${PROTO_SRCS} ${PROTO_HDRS}
