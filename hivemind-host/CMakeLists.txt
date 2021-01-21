@@ -4,7 +4,7 @@ set(LIB_ALIAS "SwarmUS::Pheromones::HiveMind::Host")
 nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
   generic.proto
   function-call.proto
-  request.proto
+  message.proto
 )
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})

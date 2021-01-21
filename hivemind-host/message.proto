@@ -17,3 +17,10 @@ message Response {
         FunctionCallResponse functionCall = 3;
     }
 }
+
+message Message {
+    oneof message {
+        Request request = 1;
+        Response response = 2;
+    }
+}
