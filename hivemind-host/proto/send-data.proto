@@ -5,7 +5,3 @@ message SendDataRequest {
     uint32 robotId = 1;
     bytes data = 2 ;
 }
-
-message FunctionCallResponse {
-    GenericResponse response = 1;
-}
