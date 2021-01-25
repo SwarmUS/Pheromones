@@ -8,6 +8,7 @@ nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
     proto/generic.proto
     proto/function-call.proto
     proto/message.proto
+    proto/send-data.proto
 )
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})

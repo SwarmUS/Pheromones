@@ -1,5 +1,2 @@
-* include:"sys/types.h"
-* include:"dirent.h"
-
 FunctionCallRequest.functionName max_size:32
 FunctionCallRequest.arguments max_count:16
