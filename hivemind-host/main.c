@@ -7,11 +7,7 @@
 
 uint16_t s_bufferSize = 1024;
 
-void encode() {}
-
-void decode() {}
-
-int main() {
+int main_encode_decode() {
   /* This is the buffer where we will store our message. */
   uint8_t bufferSend[s_bufferSize];
   uint8_t bufferReceive[s_bufferSize];
@@ -22,6 +18,7 @@ int main() {
   pb_istream_t inputStream =
       pb_istream_from_buffer(bufferReceive, s_bufferSize);
 
+  /*-------- SENDER -------*/
   // Packet definition
   FunctionArgument arg = {};
   arg.which_argument = FunctionArgument_int_arg_tag;
@@ -43,17 +40,50 @@ int main() {
 
   // send message on the wire
   status = pb_encode(&outputStream, Message_fields, &msg);
-  memcpy(bufferReceive, bufferSend, s_bufferSize); // "transfer over the wire"
   printf("Sending status: %d \n", status);
 
-  // From the other side of the comm
+  // Copying to mimic sending over the wire (tcp, uart, spi, etc)
+  memcpy(bufferReceive, bufferSend, s_bufferSize);
 
+  /*-------- RECEIVER -------*/
   Message msg_receive = Message_init_default;
+  strcpy(msg_receive.message.request.message.function_call.functionName,
+         "GARBAGE STUFSDFSSSSSSSSSSSSSSSSSSSS");
   status = pb_decode(&inputStream, Message_fields, &msg_receive);
   printf("Receiving status status: %d \n", status);
 
-  printf("Funciton name: %s \n",
+  printf("VALUE: %s \n",
          msg_receive.message.request.message.function_call.functionName);
+
+  printf("end\n");
+  return 0;
+}
+
+int main_pipe_data() {
+  /* This is the buffer where we will store our message. */
+  uint8_t bufferSend[s_bufferSize];
+  uint8_t bufferReceive[s_bufferSize];
+  uint8_t bufferSend2[s_bufferSize];
+  uint8_t bufferReceive2[s_bufferSize];
+  bool status;
+
+  // stream definition
+  pb_ostream_t outputStream = pb_ostream_from_buffer(bufferSend, s_bufferSize);
+  pb_istream_t inputStream =
+      pb_istream_from_buffer(bufferReceive, s_bufferSize);
+
+  pb_ostream_t outputStream2 = 
+      pb_ostream_from_buffer(bufferSend2, s_bufferSize);
+  pb_istream_t inputStream2 =
+      pb_istream_from_buffer(bufferReceive2, s_bufferSize);
+
+  /*-------- SENDER -------*/
+  // Packet definition
+  SendDataRequest req = {};
+  req.robotId = 1;
+  pb_callback_t test;
 
   return 0;
 }
+
+int main() { return main_encode_decode(); }

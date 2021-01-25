@@ -3,5 +3,5 @@ import "generic.proto";
 
 message SendDataRequest {
     uint32 robotId = 1;
-    bytes data = 2 ;
+    uint32 size = 2;
 }

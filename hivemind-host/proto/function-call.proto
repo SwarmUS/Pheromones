@@ -8,7 +8,6 @@ message FunctionArgument {
 }
 
 message FunctionCallRequest {
-
     string functionName = 1 ;
     repeated FunctionArgument arguments = 2 ;
 }
