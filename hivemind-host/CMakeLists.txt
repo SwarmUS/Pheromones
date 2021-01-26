@@ -24,7 +24,11 @@ target_include_directories(${LIB_NAME}
         ${NANOPB_INCLUDE_DIRS})
 
 target_link_libraries(${LIB_NAME}
-    protobuf-nanopb-static)
+    PUBLIC
+        protobuf-nanopb-static
+        SwarmUS::Pheromones::Common
+    
+)
 
 
 add_executable(test main.c)
