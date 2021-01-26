@@ -29,7 +29,7 @@ target_link_libraries(${LIB_NAME}
 )
 
 
-add_executable(test main.c)
-target_link_libraries(test
+add_executable(main_test main.c)
+target_link_libraries(main_test
     PUBLIC
         SwarmUS::Pheromones::HiveMind::Host)
