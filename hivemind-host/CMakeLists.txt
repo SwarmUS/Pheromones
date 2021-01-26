@@ -21,7 +21,10 @@ add_library(${LIB_ALIAS} ALIAS ${LIB_NAME})
 
 target_include_directories(${LIB_NAME}
     PUBLIC
-        ${NANOPB_INCLUDE_DIRS})
+        ${NANOPB_INCLUDE_DIRS}
+
+        # Where nanopb generates it's files
+        ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries(${LIB_NAME}
     PUBLIC
