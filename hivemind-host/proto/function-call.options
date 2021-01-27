@@ -1,2 +1,1 @@
-FunctionCallRequest.functionName max_size:32
-FunctionCallRequest.arguments max_count:16
+FunctionCallRequest.* type:FT_CALLBACK
