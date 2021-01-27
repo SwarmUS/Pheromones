@@ -16,13 +16,18 @@ message Response {
 
     oneof message {
         GenericResponse generic = 2;
-        FunctionCallResponse functionCall = 3;
+        FunctionCallResponse function_call = 3;
     }
 }
 
 message Message {
+
+    uint16 sourceId = 1
+
+    uint16 destinationId = 2
+
     oneof message {
-        Request request = 1;
-        Response response = 2;
+        Request request = 3;
+        Response response = 4;
     }
 }
