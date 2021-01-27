@@ -1,1 +1,1 @@
-GenericResponse.details max_length:16
+GenericResponse.details max_size:32
