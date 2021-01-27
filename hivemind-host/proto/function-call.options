@@ -1,2 +1,1 @@
-FunctionCallRequest.* type:FT_CALLBACK
-FunctionCallRequest.* callback_datatype:"void*"
+FunctionCallRequest.* type:FT_POINTER
