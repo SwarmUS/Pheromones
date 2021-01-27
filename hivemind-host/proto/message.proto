@@ -22,9 +22,9 @@ message Response {
 
 message Message {
 
-    uint16 sourceId = 1
+    uint16 sourceId = 1;
 
-    uint16 destinationId = 2
+    uint16 destinationId = 2;
 
     oneof message {
         Request request = 3;
