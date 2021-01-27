@@ -31,7 +31,7 @@ target_link_libraries(${LIB_NAME}
 )
 
 
-add_executable(test main.c)
-target_link_libraries(test
+add_executable(hivemind-host-example main.c)
+target_link_libraries(hivemind-host-example
     PUBLIC
         SwarmUS::Pheromones::HiveMind::Host)
