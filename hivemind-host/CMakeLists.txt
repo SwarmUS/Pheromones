@@ -30,8 +30,3 @@ target_link_libraries(${LIB_NAME}
         protobuf-nanopb-static
 )
 
-
-add_executable(hivemind-host-example main.c)
-target_link_libraries(hivemind-host-example
-    PUBLIC
-        SwarmUS::Pheromones::HiveMind::Host)
