@@ -1,2 +1,2 @@
-FunctionCallRequest.functionName max_size:32
+FunctionCallRequest.function_name max_size:32
 FunctionCallRequest.arguments max_count:16
