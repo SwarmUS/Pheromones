@@ -27,7 +27,7 @@ int main_encode_decode() {
   FunctionCallRequest f_req = FunctionCallRequest_init_default;
   f_req.arguments_count = 1;
   f_req.arguments[0] = arg;
-  strcpy(f_req.functionName, "hello_world");
+  strcpy(f_req.function_name, "hello_world");
 
   Request req = Request_init_default;
   req.id = 1;
@@ -47,13 +47,13 @@ int main_encode_decode() {
 
   /*-------- RECEIVER -------*/
   Message msg_receive = Message_init_default;
-  strcpy(msg_receive.message.request.message.function_call.functionName,
+  strcpy(msg_receive.message.request.message.function_call.function_name,
          "GARBAGE STUFSDFSSSSSSSSSSSSSSSSSSSS");
   status = pb_decode(&inputStream, Message_fields, &msg_receive);
   printf("Receiving status status: %d \n", status);
 
   printf("VALUE: %s \n",
-         msg_receive.message.request.message.function_call.functionName);
+         msg_receive.message.request.message.function_call.function_name);
 
   printf("end\n");
   return 0;
@@ -78,11 +78,6 @@ int main_pipe_data() {
       pb_istream_from_buffer(bufferReceive2, s_bufferSize);
 
   /*-------- SENDER -------*/
-  // Packet definition
-  SendDataRequest req = {};
-  req.robotId = 1;
-  pb_callback_t test;
-
   return 0;
 }
 

@@ -1,13 +1,11 @@
 syntax = "proto3";
 import "generic.proto";
 import "function-call.proto";
-import "send-data.proto";
 
 message Request {
     int32 id = 1;
     oneof message {
         FunctionCallRequest function_call = 2;
-        SendDataRequest send_data = 3;
     }
 }
 
@@ -15,8 +13,7 @@ message Response {
     int32 id = 1;
 
     oneof message {
-        GenericResponse generic = 2;
-        FunctionCallResponse function_call = 3;
+        FunctionCallResponse function_call = 2;
     }
 }
 

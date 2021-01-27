@@ -8,7 +8,6 @@ nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
     proto/generic.proto
     proto/function-call.proto
     proto/message.proto
-    proto/send-data.proto
 )
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -30,3 +29,9 @@ target_link_libraries(${LIB_NAME}
     PUBLIC
         protobuf-nanopb-static
 )
+
+
+add_executable(test main.c)
+target_link_libraries(test
+    PUBLIC
+        SwarmUS::Pheromones::HiveMind::Host)

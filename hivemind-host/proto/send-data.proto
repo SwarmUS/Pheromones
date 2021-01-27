@@ -1,7 +1,0 @@
-syntax = "proto3";
-import "generic.proto";
-
-message SendDataRequest {
-    uint32 robotId = 1;
-    uint32 size = 2;
-}
