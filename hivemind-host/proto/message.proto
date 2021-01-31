@@ -3,24 +3,28 @@ import "generic.proto";
 import "function-call.proto";
 
 message Request {
-    int32 id = 1;
+    uint32 id = 1;
     oneof message {
         FunctionCallRequest function_call = 2;
     }
 }
 
 message Response {
-    int32 id = 1;
+    uint32 id = 1;
 
     oneof message {
-        GenericResponse generic = 2;
-        FunctionCallResponse functionCall = 3;
+        FunctionCallResponse function_call = 3;
     }
 }
 
 message Message {
+
+    uint32 sourceId = 1;
+
+    uint32 destinationId = 2;
+
     oneof message {
-        Request request = 1;
-        Response response = 2;
+        Request request = 3;
+        Response response = 4;
     }
 }
