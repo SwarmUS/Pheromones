@@ -1,19 +1,18 @@
 syntax = "proto3";
 import "generic.proto";
-import "function-call.proto";
+import "user-call.proto";
 
 message Request {
     uint32 id = 1;
     oneof message {
-        FunctionCallRequest function_call = 2;
+        UserCallRequest user_call = 2;
     }
 }
 
 message Response {
     uint32 id = 1;
-
     oneof message {
-        FunctionCallResponse function_call = 3;
+        UserCallResponse user_call = 2;
     }
 }
 
