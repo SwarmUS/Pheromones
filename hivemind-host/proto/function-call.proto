@@ -4,6 +4,7 @@ import "generic.proto";
 message FunctionArgument {
     oneof argument{
         int64 int_arg = 1;
+        float float_arg = 2;
     }
 }
 

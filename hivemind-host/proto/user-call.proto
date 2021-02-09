@@ -1,0 +1,24 @@
+syntax = "proto3";
+import "function-call.proto";
+
+enum UserCallDestination {
+     UNKNOWN = 0;
+     HOST = 1;
+     BUZZ = 2;
+}
+
+
+message UserCallRequest {
+    UserCallDestination destination = 1;
+    oneof request{
+          FunctionCallRequest functionCall = 2;
+    }
+}
+
+message UserCallResponse {
+    UserCallDestination destination = 1;
+
+    oneof response{
+          FunctionCallResponse functionCall = 2;
+    }
+}

@@ -7,6 +7,7 @@ nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
 
     proto/generic.proto
     proto/function-call.proto
+    proto/user-call.proto
     proto/message.proto
 )
 
