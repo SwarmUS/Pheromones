@@ -1,6 +1,8 @@
 syntax = "proto3";
 import "generic.proto";
 
+option java_package = "com.swarmus.hivear";
+
 message FunctionArgument {
     oneof argument{
         int64 int_arg = 1;

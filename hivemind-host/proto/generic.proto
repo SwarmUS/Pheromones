@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option java_package = "com.swarmus.hivear";
+
 enum GenericResponseStatus {
     OK = 0;
     BAD_REQUEST = 1;

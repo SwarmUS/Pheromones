@@ -1,6 +1,8 @@
 syntax = "proto3";
 import "function-call.proto";
 
+option java_package = "com.swarmus.hivear";
+
 enum UserCallDestination {
      UNKNOWN = 0;
      HOST = 1;
