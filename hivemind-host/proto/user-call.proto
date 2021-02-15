@@ -3,7 +3,7 @@ import "function-call.proto";
 
 option java_package = "com.swarmus.hivear";
 
-enum UserCallDestination {
+enum UserCallTarget {
      UNKNOWN = 0;
      HOST = 1;
      BUZZ = 2;
@@ -11,16 +11,19 @@ enum UserCallDestination {
 
 
 message UserCallRequest {
-    UserCallDestination destination = 1;
+    UserCallTarget destination = 1;
+    UserCallTarget source = 2;
+
     oneof request{
-          FunctionCallRequest functionCall = 2;
+          FunctionCallRequest functionCall = 3;
     }
 }
 
 message UserCallResponse {
-    UserCallDestination destination = 1;
+    UserCallTarget destination = 1;
+    UserCallTarget source = 2;
 
     oneof response{
-          FunctionCallResponse functionCall = 2;
+          FunctionCallResponse functionCall = 3;
     }
 }
