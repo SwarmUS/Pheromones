@@ -4,10 +4,7 @@ set(LIB_ALIAS "SwarmUS::Pheromones::HiveMind::Host")
 nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
     RELPATH
         ${CMAKE_CURRENT_SOURCE_DIR}/proto
-
-    proto/generic.proto
-    proto/function-call.proto
-    proto/user-call.proto
+        
     proto/message.proto
 )
 

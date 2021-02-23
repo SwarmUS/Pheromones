@@ -1,8 +1,61 @@
 syntax = "proto3";
-import "generic.proto";
-import "user-call.proto";
 
 option java_package = "com.swarmus.hivear";
+
+// Generic
+enum GenericResponseStatus {
+    OK = 0;
+    BAD_REQUEST = 1;
+    ERROR = 2;
+}
+
+message GenericResponse {
+    GenericResponseStatus status = 1;
+    string details = 2;
+}
+
+// FunctionCall
+message FunctionArgument {
+    oneof argument{
+        int64 int_arg = 1;
+        float float_arg = 2;
+    }
+}
+
+message FunctionCallRequest {
+    string function_name = 1;
+    repeated FunctionArgument arguments = 2;
+}
+
+message FunctionCallResponse {
+    GenericResponse response = 1;
+}
+
+// UserCalll
+enum UserCallTarget {
+     UNKNOWN = 0;
+     HOST = 1;
+     BUZZ = 2;
+}
+
+
+message UserCallRequest {
+    UserCallTarget destination = 1;
+    UserCallTarget source = 2;
+
+    oneof request{
+          FunctionCallRequest functionCall = 3;
+    }
+}
+
+message UserCallResponse {
+    UserCallTarget destination = 1;
+    UserCallTarget source = 2;
+
+    oneof response{
+          FunctionCallResponse functionCall = 3;
+    }
+}
 
 message Request {
     uint32 id = 1;
@@ -15,6 +68,7 @@ message Response {
     uint32 id = 1;
     oneof message {
         UserCallResponse user_call = 2;
+        GenericResponse generic = 3;
     }
 }
 
