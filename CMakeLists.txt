@@ -15,5 +15,4 @@ nanopb_fetch()
 find_package(Nanopb REQUIRED)
 
 # Add libraries
-add_subdirectory(example)
 add_subdirectory(hivemind-host)
