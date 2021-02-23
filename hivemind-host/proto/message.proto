@@ -54,6 +54,7 @@ message UserCallResponse {
 
     oneof response{
           FunctionCallResponse functionCall = 3;
+          GenericResponse generic = 4;
     }
 }
 
