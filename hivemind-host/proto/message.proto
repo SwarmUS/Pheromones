@@ -27,6 +27,7 @@ message FunctionCallRequest {
     repeated FunctionArgument arguments = 2;
 }
 
+// Not useful as of now, could probably remove eventuallt
 message FunctionCallResponse {
     GenericResponse response = 1;
 }
@@ -58,6 +59,27 @@ message UserCallResponse {
     }
 }
 
+// Hivemind API
+message IdRequest {
+}
+
+message HiveMindApiRequest {
+    UserCallTarget source = 1;
+
+    oneof request{
+          FunctionCallRequest IdRequest = 2;
+    }
+}
+
+message HiveMindApiResponse {
+    UserCallTarget destination = 1;
+
+    oneof response{
+          GenericResponse generic = 2;
+    }
+}
+
+// Base message
 message Request {
     uint32 id = 1;
     oneof message {
@@ -73,6 +95,10 @@ message Response {
     }
 }
 
+// First message sent on connection
+message Greetings{
+}
+
 message Message {
 
     uint32 sourceId = 1;
@@ -82,5 +108,6 @@ message Message {
     oneof message {
         Request request = 3;
         Response response = 4;
+        Greetings greetings = 5;
     }
 }
