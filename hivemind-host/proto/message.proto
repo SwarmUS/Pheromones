@@ -67,7 +67,7 @@ message HiveMindApiRequest {
     UserCallTarget source = 1;
 
     oneof request{
-          FunctionCallRequest IdRequest = 2;
+            IdRequest IdRequest = 2;
     }
 }
 
