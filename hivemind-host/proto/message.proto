@@ -61,6 +61,9 @@ message UserCallResponse {
 
 // Hivemind API
 message IdRequest {
+}
+
+message IdResponse {
     uint32 id = 1;
 }
 
@@ -77,6 +80,7 @@ message HiveMindApiResponse {
 
     oneof response{
           GenericResponse generic = 2;
+          IdResponse id = 3;
     }
 }
 
