@@ -96,7 +96,7 @@ message Response {
 }
 
 // First message sent on connection
-message Greetings{
+message Greeting{
 }
 
 message Message {
@@ -108,6 +108,6 @@ message Message {
     oneof message {
         Request request = 3;
         Response response = 4;
-        Greetings greetings = 5;
+        Greeting greeting = 5;
     }
 }
