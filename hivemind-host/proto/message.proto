@@ -61,6 +61,7 @@ message UserCallResponse {
 
 // Hivemind API
 message IdRequest {
+    uint32 id = 1;
 }
 
 message HiveMindApiRequest {
@@ -97,6 +98,7 @@ message Response {
 
 // First message sent on connection
 message Greeting{
+    uint32 id = 1;
 }
 
 message Message {
