@@ -34,9 +34,9 @@ message FunctionCallResponse {
 
 // UserCalll
 enum UserCallTarget {
-     UNKNOWN = 0;
-     HOST = 1;
-     BUZZ = 2;
+     UC_UNKNOWN = 0;
+     UC_HOST = 1;
+     UC_BUZZ = 2;
 }
 
 
@@ -68,19 +68,29 @@ message IdResponse {
 }
 
 message HiveMindApiRequest {
-    UserCallTarget source = 1;
-
     oneof request{
-            IdRequest id = 2;
+            IdRequest id = 1;
     }
 }
 
 message HiveMindApiResponse {
-    UserCallTarget destination = 1;
-
     oneof response{
-          GenericResponse generic = 2;
-          IdResponse id = 3;
+          GenericResponse generic = 1;
+          IdResponse id = 2;
+    }
+}
+
+// Swarm API, used internally, by the ESP32 for example
+message SwarmApiRequest {
+    oneof request{
+            IdRequest id = 1;
+    }
+}
+
+message SwarmApiResponse {
+    oneof response{
+          GenericResponse generic = 1;
+          IdResponse id = 2;
     }
 }
 
@@ -89,14 +99,16 @@ message Request {
     uint32 id = 1;
     oneof message {
         UserCallRequest user_call = 2;
+        HiveMindApiRequest hapi = 3;
     }
 }
 
 message Response {
     uint32 id = 1;
     oneof message {
-        UserCallResponse user_call = 2;
-        GenericResponse generic = 3;
+        GenericResponse generic = 2;
+        UserCallResponse user_call = 3;
+        HiveMindApiResponse hapi = 4;
     }
 }
 
