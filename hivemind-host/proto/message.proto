@@ -81,6 +81,7 @@ message HiveMindApiResponse {
 }
 
 // Swarm API, used internally, by the ESP32 for example. Shouldn't reach the hivemind
+// Will maybe make it's own library
 message SwarmApiRequest {
     oneof request{
             IdRequest id = 1;
