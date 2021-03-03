@@ -45,7 +45,7 @@ message UserCallRequest {
     UserCallTarget source = 2;
 
     oneof request{
-          FunctionCallRequest functionCall = 3;
+          FunctionCallRequest function_all = 3;
     }
 }
 
@@ -54,7 +54,7 @@ message UserCallResponse {
     UserCallTarget source = 2;
 
     oneof response{
-          FunctionCallResponse functionCall = 3;
+          FunctionCallResponse function_call = 3;
           GenericResponse generic = 4;
     }
 }
@@ -98,9 +98,9 @@ message SwarmApiResponse {
 message Request {
     uint32 id = 1;
     oneof message {
-        UserCallRequest userCall = 2;
-        HiveMindApiRequest hiveApi = 3;
-        SwarmApiRequest swarm = 4;
+        UserCallRequest user_call = 2;
+        HiveMindApiRequest hive_api = 3;
+        SwarmApiRequest swarm_api = 4;
     }
 }
 
@@ -108,9 +108,9 @@ message Response {
     uint32 id = 1;
     oneof message {
         GenericResponse generic = 2;
-        UserCallResponse userCall = 3;
-        HiveMindApiResponse hiveApi = 4;
-        SwarmApiResponse swarm = 5;
+        UserCallResponse user_call = 3;
+        HiveMindApiResponse hive_api = 4;
+        SwarmApiResponse swarm_api = 5;
     }
 }
 
@@ -121,9 +121,9 @@ message Greeting{
 
 message Message {
 
-    uint32 sourceId = 1;
+    uint32 source_id = 1;
 
-    uint32 destinationId = 2;
+    uint32 destination_id = 2;
 
     oneof message {
         Request request = 3;
