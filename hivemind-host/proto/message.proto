@@ -27,7 +27,7 @@ message FunctionCallRequest {
     repeated FunctionArgument arguments = 2;
 }
 
-// Not useful as of now, could probably remove eventuallt
+// Not useful as of now, could probably remove eventually
 message FunctionCallResponse {
     GenericResponse response = 1;
 }
