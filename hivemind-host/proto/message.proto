@@ -45,7 +45,7 @@ message UserCallRequest {
     UserCallTarget source = 2;
 
     oneof request{
-          FunctionCallRequest function_all = 3;
+          FunctionCallRequest function_call = 3;
     }
 }
 
