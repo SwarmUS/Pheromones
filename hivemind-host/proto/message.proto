@@ -34,9 +34,9 @@ message FunctionCallResponse {
 
 // UserCalll
 enum UserCallTarget {
-     UC_UNKNOWN = 0;
-     UC_HOST = 1;
-     UC_BUZZ = 2;
+     UNKNOWN = 0;
+     HOST = 1;
+     BUZZ = 2;
 }
 
 
