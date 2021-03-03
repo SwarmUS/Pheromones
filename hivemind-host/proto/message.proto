@@ -80,7 +80,7 @@ message HiveMindApiResponse {
     }
 }
 
-// Swarm API, used internally, by the ESP32 for example
+// Swarm API, used internally, by the ESP32 for example. Shouldn't reach the hivemind
 message SwarmApiRequest {
     oneof request{
             IdRequest id = 1;
@@ -98,8 +98,9 @@ message SwarmApiResponse {
 message Request {
     uint32 id = 1;
     oneof message {
-        UserCallRequest user_call = 2;
-        HiveMindApiRequest hapi = 3;
+        UserCallRequest userCall = 2;
+        HiveMindApiRequest hiveApi = 3;
+        SwarmApiRequest swarm = 4;
     }
 }
 
@@ -107,8 +108,9 @@ message Response {
     uint32 id = 1;
     oneof message {
         GenericResponse generic = 2;
-        UserCallResponse user_call = 3;
-        HiveMindApiResponse hapi = 4;
+        UserCallResponse userCall = 3;
+        HiveMindApiResponse hiveApi = 4;
+        SwarmApiResponse swarm = 5;
     }
 }
 
