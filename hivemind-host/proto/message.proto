@@ -37,7 +37,7 @@ message FunctionCallResponse {
 message FunctionListSizeRequest {
 }
 
-message FunctionListResponse {
+message FunctionListSizeResponse {
     uint32 function_arrray_size = 1;
 }
 
@@ -51,10 +51,21 @@ message FunctionDescriptionArgument{
     FunctionDescriptionArgumentType type = 2;
 }
 
-message FunctionDescriptionRequest {
+message FunctionDescription {
     string function_name = 1;
-    repeated FunctionDescriptionArgument arguments_description = 2;
-    
+    repeated FunctionDescriptionArgument arguments_description = 2;  
+}
+
+
+message FunctionDescriptionRequest {
+    uint32 function_arrray_size = 1;
+}
+
+message FunctionDescriptionResponse {
+    oneof response{
+        GenericResponse generic = 1;
+        FunctionDescription function_description = 2;
+    }
 }
 
 // UserCalll
@@ -71,6 +82,7 @@ message UserCallRequest {
 
     oneof request{
           FunctionCallRequest function_call = 3;
+          FunctionDescriptionRequest function_description = 4;
     }
 }
 
@@ -79,8 +91,9 @@ message UserCallResponse {
     UserCallTarget source = 2;
 
     oneof response{
-          FunctionCallResponse function_call = 3;
-          GenericResponse generic = 4;
+        GenericResponse generic = 3;
+        FunctionCallResponse function_call = 4;
+        FunctionDescriptionResponse function_description = 5;
     }
 }
 

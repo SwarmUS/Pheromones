@@ -8,5 +8,5 @@ FunctionCallRequest.arguments max_count:@FUNCTION_CALL_ARGUMENT_COUNT@
 
 // Function Description
 FunctionDescriptionArgument.argument_name max_size:@FUNCTION_DESCRIPTION_ARGUMENT_NAME_SIZE@
-FunctionDescriptionRequest.function_name max_size:@FUNCTION_DESCRIPTION_FUNCTION_NAME_SIZE@
-FunctionDescriptionRequest.arguments_description max_count:@FUNCTION_CALL_ARGUMENT_COUNT@
+FunctionDescription.function_name max_size:@FUNCTION_DESCRIPTION_FUNCTION_NAME_SIZE@
+FunctionDescription.arguments_description max_count:@FUNCTION_CALL_ARGUMENT_COUNT@
