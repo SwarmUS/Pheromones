@@ -117,6 +117,7 @@ message Response {
 
 // First message sent on connection
 message Greeting{
+    // Id of the board
     uint32 id = 1;
 }
 
