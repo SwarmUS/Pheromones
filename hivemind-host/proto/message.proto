@@ -32,6 +32,31 @@ message FunctionCallResponse {
     GenericResponse response = 1;
 }
 
+// Function List/Description
+
+message FunctionListSizeRequest {
+}
+
+message FunctionListResponse {
+    uint32 function_arrray_size = 1;
+}
+
+enum FunctionDescriptionArgumentType {
+    UNKNOWN_TYPE = 0;
+    INT = 1;
+    FLOAT = 2;
+}
+message FunctionDescriptionArgument{
+    string argument_name = 1;
+    FunctionDescriptionArgumentType type = 2;
+}
+
+message FunctionDescriptionRequest {
+    string function_name = 1;
+    repeated FunctionDescriptionArgument arguments_description = 2;
+    
+}
+
 // UserCalll
 enum UserCallTarget {
      UNKNOWN = 0;

@@ -4,3 +4,9 @@ GenericResponse.details max_size:32
 // FunctionCall
 FunctionCallRequest.function_name max_size:32
 FunctionCallRequest.arguments max_count:8
+
+
+// Function Description
+FunctionDescriptionArgument.argument_name max_size:32
+FunctionDescriptionRequest.function_name max_size:32
+FunctionDescriptionRequest.arguments_description max_count:8
