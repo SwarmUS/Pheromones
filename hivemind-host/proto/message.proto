@@ -34,11 +34,11 @@ message FunctionCallResponse {
 
 // Function List/Description
 
-message FunctionListSizeRequest {
+message FunctionListLengthRequest {
 }
 
-message FunctionListSizeResponse {
-    uint32 function_arrray_size = 1;
+message FunctionListLengthResponse {
+    uint32 function_arrray_length = 1;
 }
 
 enum FunctionDescriptionArgumentType {
@@ -58,7 +58,7 @@ message FunctionDescription {
 
 
 message FunctionDescriptionRequest {
-    uint32 function_arrray_size = 1;
+    uint32 function_list_index = 1;
 }
 
 message FunctionDescriptionResponse {
@@ -82,7 +82,8 @@ message UserCallRequest {
 
     oneof request{
           FunctionCallRequest function_call = 3;
-          FunctionDescriptionRequest function_description = 4;
+          FunctionListLengthRequest function_list_length = 4;
+          FunctionDescriptionRequest function_description = 5;
     }
 }
 
@@ -93,7 +94,8 @@ message UserCallResponse {
     oneof response{
         GenericResponse generic = 3;
         FunctionCallResponse function_call = 4;
-        FunctionDescriptionResponse function_description = 5;
+        FunctionListLengthResponse function_list_length = 5;
+        FunctionDescriptionResponse function_description = 6;
     }
 }
 
