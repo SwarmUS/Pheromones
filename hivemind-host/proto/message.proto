@@ -38,7 +38,7 @@ message FunctionListLengthRequest {
 }
 
 message FunctionListLengthResponse {
-    uint32 function_arrray_length = 1;
+    uint32 function_array_length = 1;
 }
 
 enum FunctionDescriptionArgumentType {
