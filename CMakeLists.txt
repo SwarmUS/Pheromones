@@ -8,6 +8,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR TRUE)
 
 # Includes
 include(nanopb/common)
+include(utils)
 
 
 # Required for most libs

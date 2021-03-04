@@ -27,6 +27,7 @@ message FunctionCallRequest {
     repeated FunctionArgument arguments = 2;
 }
 
+// Not useful as of now, could probably remove eventually
 message FunctionCallResponse {
     GenericResponse response = 1;
 }
@@ -44,7 +45,7 @@ message UserCallRequest {
     UserCallTarget source = 2;
 
     oneof request{
-          FunctionCallRequest functionCall = 3;
+          FunctionCallRequest function_call = 3;
     }
 }
 
@@ -53,34 +54,82 @@ message UserCallResponse {
     UserCallTarget source = 2;
 
     oneof response{
-          FunctionCallResponse functionCall = 3;
+          FunctionCallResponse function_call = 3;
           GenericResponse generic = 4;
     }
 }
 
+// Hivemind API
+message IdRequest {
+}
+
+message IdResponse {
+    uint32 id = 1;
+}
+
+message HiveMindApiRequest {
+    oneof request{
+            IdRequest id = 1;
+    }
+}
+
+message HiveMindApiResponse {
+    oneof response{
+          GenericResponse generic = 1;
+          IdResponse id = 2;
+    }
+}
+
+// Swarm API, used internally, by the ESP32 for example. Shouldn't reach the hivemind
+// Will maybe make it's own library
+message SwarmApiRequest {
+    oneof request{
+            IdRequest id = 1;
+    }
+}
+
+message SwarmApiResponse {
+    oneof response{
+          GenericResponse generic = 1;
+          IdResponse id = 2;
+    }
+}
+
+// Base message
 message Request {
     uint32 id = 1;
     oneof message {
         UserCallRequest user_call = 2;
+        HiveMindApiRequest hive_api = 3;
+        SwarmApiRequest swarm_api = 4;
     }
 }
 
 message Response {
     uint32 id = 1;
     oneof message {
-        UserCallResponse user_call = 2;
-        GenericResponse generic = 3;
+        GenericResponse generic = 2;
+        UserCallResponse user_call = 3;
+        HiveMindApiResponse hive_api = 4;
+        SwarmApiResponse swarm_api = 5;
     }
+}
+
+// First message sent on connection
+message Greeting{
+    // Id of the board
+    uint32 id = 1;
 }
 
 message Message {
 
-    uint32 sourceId = 1;
+    uint32 source_id = 1;
 
-    uint32 destinationId = 2;
+    uint32 destination_id = 2;
 
     oneof message {
         Request request = 3;
         Response response = 4;
+        Greeting greeting = 5;
     }
 }

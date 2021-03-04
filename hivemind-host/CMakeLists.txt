@@ -1,6 +1,9 @@
 set(LIB_NAME "swarmus-pheromones-hivemind-host")
 set(LIB_ALIAS "SwarmUS::Pheromones::HiveMind::Host")
 
+include(DefaultMessageOptions.cmake) # not a module, need to specify "".cmake"
+configure_file(proto/message.options.in ${CMAKE_CURRENT_SOURCE_DIR}/proto/message.options)
+
 nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS
     RELPATH
         ${CMAKE_CURRENT_SOURCE_DIR}/proto
