@@ -2,5 +2,11 @@
 GenericResponse.details max_size:@GENERIC_RESPONSE_DETAILS_SIZE@
 
 // FunctionCall
-FunctionCallRequest.function_name max_size:@FUNCTION_CALL_NAME_SIZE@
-FunctionCallRequest.arguments max_count:@FUNCTION_CALL_ARGUMENT_COUNT@
+FunctionCallRequest.function_name max_size:@FUNCTION_NAME_SIZE@
+FunctionCallRequest.arguments max_count:@FUNCTION_ARGUMENT_COUNT@
+
+
+// Function Description
+FunctionDescriptionArgument.argument_name max_size:@FUNCTION_ARGUMENT_NAME_SIZE@
+FunctionDescription.function_name max_size:@FUNCTION_NAME_SIZE@
+FunctionDescription.arguments_description max_count:@FUNCTION_ARGUMENT_COUNT@

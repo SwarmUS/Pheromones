@@ -32,6 +32,42 @@ message FunctionCallResponse {
     GenericResponse response = 1;
 }
 
+// Function List/Description
+
+message FunctionListLengthRequest {
+}
+
+message FunctionListLengthResponse {
+    uint32 function_array_length = 1;
+}
+
+enum FunctionDescriptionArgumentType {
+    UNKNOWN_TYPE = 0;
+    INT = 1;
+    FLOAT = 2;
+}
+message FunctionDescriptionArgument{
+    string argument_name = 1;
+    FunctionDescriptionArgumentType type = 2;
+}
+
+message FunctionDescription {
+    string function_name = 1;
+    repeated FunctionDescriptionArgument arguments_description = 2;  
+}
+
+
+message FunctionDescriptionRequest {
+    uint32 function_list_index = 1;
+}
+
+message FunctionDescriptionResponse {
+    oneof response{
+        GenericResponse generic = 1;
+        FunctionDescription function_description = 2;
+    }
+}
+
 // UserCalll
 enum UserCallTarget {
      UNKNOWN = 0;
@@ -46,6 +82,8 @@ message UserCallRequest {
 
     oneof request{
           FunctionCallRequest function_call = 3;
+          FunctionListLengthRequest function_list_length = 4;
+          FunctionDescriptionRequest function_description = 5;
     }
 }
 
@@ -54,8 +92,10 @@ message UserCallResponse {
     UserCallTarget source = 2;
 
     oneof response{
-          FunctionCallResponse function_call = 3;
-          GenericResponse generic = 4;
+        GenericResponse generic = 3;
+        FunctionCallResponse function_call = 4;
+        FunctionListLengthResponse function_list_length = 5;
+        FunctionDescriptionResponse function_description = 6;
     }
 }
 
