@@ -185,5 +185,6 @@ message Message {
         Request request = 3;
         Response response = 4;
         Greeting greeting = 5;
+        BuzzMessage buzz = 5;
     }
 }
