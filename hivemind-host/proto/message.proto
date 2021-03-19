@@ -16,7 +16,7 @@ message GenericResponse {
 }
 
 // FunctionCall
-// Allows the use to call a function to a remote component (buzz or host)
+// Allows the user to call a function to a remote component (buzz or host)
 message FunctionArgument {
     oneof argument{
         int64 int_arg = 1;
