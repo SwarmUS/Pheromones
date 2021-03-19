@@ -3,6 +3,7 @@ syntax = "proto3";
 option java_package = "com.swarmus.hivear";
 
 // Generic
+// Generic response for reuse
 enum GenericResponseStatus {
     OK = 0;
     BAD_REQUEST = 1;
@@ -15,6 +16,7 @@ message GenericResponse {
 }
 
 // FunctionCall
+// Allows the user to call a function to a remote component (buzz or host)
 message FunctionArgument {
     oneof argument{
         int64 int_arg = 1;
@@ -32,8 +34,8 @@ message FunctionCallResponse {
     GenericResponse response = 1;
 }
 
-// Function List/Description
-
+// Function List
+// Get the length of the function registration
 message FunctionListLengthRequest {
 }
 
@@ -41,6 +43,9 @@ message FunctionListLengthResponse {
     uint32 function_array_length = 1;
 }
 
+// Function Description
+// Can get the function name and args name/type via it's id (index position)
+// The index starts at 0, use FunctionListLengthRequest to get the length of it
 enum FunctionDescriptionArgumentType {
     UNKNOWN_TYPE = 0;
     INT = 1;
@@ -68,7 +73,8 @@ message FunctionDescriptionResponse {
     }
 }
 
-// UserCalll
+// UserCall
+// Used by the user code in the Buzz script and the robot
 enum UserCallTarget {
      UNKNOWN = 0;
      HOST = 1;
@@ -100,6 +106,7 @@ message UserCallResponse {
 }
 
 // Hivemind API
+// Used by the host robot, this is the API that the HM expose to the robot
 message IdRequest {
 }
 
@@ -120,8 +127,8 @@ message HiveMindApiResponse {
     }
 }
 
-// Swarm API, used internally, by the ESP32 for example. Shouldn't reach the hivemind
-// Will maybe make it's own library
+// Swarm API
+// Used internally, by the ESP32 for example. Shouldn't reach the hivemind or the user code
 message SwarmApiRequest {
     oneof request{
             IdRequest id = 1;
@@ -135,7 +142,12 @@ message SwarmApiResponse {
     }
 }
 
-// Base message
+// Messages used by buzz
+message BuzzMessage {
+    bytes payload = 1;
+}
+
+// Base messages to wrap all other messages types
 message Request {
     uint32 id = 1;
     oneof message {
@@ -156,6 +168,8 @@ message Response {
 }
 
 // First message sent on connection
+// Send a greeting with any data to the hivemind 
+//and the hivemind will send you a greet back with it's id
 message Greeting{
     // Id of the board
     uint32 id = 1;
@@ -171,5 +185,6 @@ message Message {
         Request request = 3;
         Response response = 4;
         Greeting greeting = 5;
+        BuzzMessage buzz = 6;
     }
 }
