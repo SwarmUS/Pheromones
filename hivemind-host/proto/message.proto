@@ -159,13 +159,13 @@ message Greeting{
 }
 
 // NetworkAPI used to share IP address and such
-message IPRequest {
+message IPDiscovery {
     uint32 ip = 1; // IP address as uint32
 }
 
 message NetworkAPI {
     oneof call {
-        IPRequest ipRequest = 1;
+        IPDiscovery ipRequest = 1;
     }
 }
 
