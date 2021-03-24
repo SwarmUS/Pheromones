@@ -165,7 +165,7 @@ message IPDiscovery {
 
 message NetworkAPI {
     oneof call {
-        IPDiscovery ipRequest = 1;
+        IPDiscovery ipDiscovery = 1;
     }
 }
 
