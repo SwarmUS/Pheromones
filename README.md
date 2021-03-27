@@ -27,4 +27,4 @@ An example is provided with the usage of the library.
 
 ## Hierarchy
 
-![Message Hierarchy](img/Message-Hierarchy.jpg?raw=true "Message Hierarchy")
+![Message Hierarchy](img/Message-Hierarchy.jpg)
