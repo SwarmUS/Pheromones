@@ -169,6 +169,37 @@ message NetworkAPI {
     }
 }
 
+// Interloc API
+enum CalibrationMode {
+    INITIATOR = 0;
+    RESPONDER = 1;
+}
+
+message SetCalibrationDistance {
+    float distance = 1;
+}
+
+message StartCalibration {
+    CalibrationMode mode = 1;
+}
+
+message StopCalibration {
+}
+
+message Calibration {
+    oneof call {
+        SetCalibrationDistance setDistance = 1;
+        StartCalibration startCalib = 2;
+        StopCalibration stopCalib = 3;
+    }
+}
+
+message InterlocAPI {
+    oneof message {
+        Calibration calibration = 1;
+    }
+}
+
 message Message {
 
     uint32 source_id = 1;
@@ -181,5 +212,6 @@ message Message {
         Greeting greeting = 5;
         BuzzMessage buzz = 6;
         NetworkAPI network = 7;
+        InterlocAPI interloc = 8;
     }
 }
