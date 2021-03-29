@@ -171,8 +171,9 @@ message NetworkAPI {
 
 // Interloc API
 enum CalibrationMode {
-    INITIATOR = 0;
-    RESPONDER = 1;
+    UNSUPORTED = 0;
+    INITIATOR = 1;
+    RESPONDER = 2;
 }
 
 message SetCalibrationDistance {
