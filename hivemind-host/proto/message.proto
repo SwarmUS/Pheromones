@@ -187,7 +187,7 @@ message StartCalibration {
 message StopCalibration {
 }
 
-message Calibration {
+message CalibrationMessage {
     oneof call {
         SetCalibrationDistance setDistance = 1;
         StartCalibration startCalib = 2;
@@ -197,7 +197,7 @@ message Calibration {
 
 message InterlocAPI {
     oneof message {
-        Calibration calibration = 1;
+        CalibrationMessage calibration = 1;
     }
 }
 
