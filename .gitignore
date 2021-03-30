@@ -4,4 +4,4 @@
 build/
 /compile_commands.json
 
-hivemind-host/proto/message.options
+src/proto/message.options
