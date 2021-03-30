@@ -13,3 +13,6 @@ FunctionDescription.arguments_description max_count:@FUNCTION_ARGUMENT_COUNT@
 
 // Buzz message
 BuzzMessage.payload max_size:@BUZZ_PAYLOAD_SIZE@
+
+// Buzz message
+Bytes.payload max_size:@BYTES_PAYLOAD_SIZE@
