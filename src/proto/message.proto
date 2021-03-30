@@ -109,9 +109,10 @@ message UserCallResponse {
 // Used by the host robot, this is the API that the HM expose to the robot
 
 message Bytes {
-    uint32 byte_req_id = 1;
+    uint32 packet_id = 1;
     uint32 packet_no = 2;
-    bytes payload = 3;
+    bool last_packet = 3;
+    bytes payload = 4;
 }
 
 message HiveMindHostApiRequest {
