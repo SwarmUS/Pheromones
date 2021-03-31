@@ -187,11 +187,15 @@ message StartCalibration {
 message StopCalibration {
 }
 
+message CalibrationEnded {
+}
+
 message CalibrationMessage {
     oneof call {
         SetCalibrationDistance setDistance = 1;
         StartCalibration startCalib = 2;
         StopCalibration stopCalib = 3;
+        CalibrationEnded calibEnded = 4;
     }
 }
 
