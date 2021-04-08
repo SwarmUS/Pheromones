@@ -115,7 +115,7 @@ message Bytes {
     bytes payload = 4;
 }
 
-message RelativePosition {
+message NeighborPosition {
     float distance  = 1;
     float relative_orientation  = 2;
     bool inLOS = 3;
@@ -130,7 +130,7 @@ message GetNeighborsListRequest {
 
 message GetNeighborResponse {
     uint32 neighbor_id = 1;
-    RelativePosition position = 2;
+    NeighborPosition position = 2;
 }
 
 message GetNeighborsListResponse {
