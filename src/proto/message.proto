@@ -29,7 +29,7 @@ message FunctionCallRequest {
     repeated FunctionArgument arguments = 2;
 }
 
-// Not useful as of now, could probably remove eventually
+// TODO: Not usefull, can return a Response->genericResponse
 message FunctionCallResponse {
     GenericResponse response = 1;
 }
@@ -68,7 +68,7 @@ message FunctionDescriptionRequest {
 
 message FunctionDescriptionResponse {
     oneof response{
-        GenericResponse generic = 1;
+        GenericResponse generic = 1; // TODO: Not usefull, can return a Response->genericResponse
         FunctionDescription function_description = 2;
     }
 }
@@ -98,7 +98,7 @@ message UserCallResponse {
     UserCallTarget source = 2;
 
     oneof response{
-        GenericResponse generic = 3;
+        GenericResponse generic = 3; // TODO: Not usefull, can return a Response->genericResponse
         FunctionCallResponse function_call = 4;
         FunctionListLengthResponse function_list_length = 5;
         FunctionDescriptionResponse function_description = 6;
@@ -115,15 +115,41 @@ message Bytes {
     bytes payload = 4;
 }
 
+message RelativePosition {
+    float distance  = 1;
+    float relative_orientation  = 2;
+    bool inLOS = 3;
+}
+
+message GetNeighborRequest {
+    uint32 neighbor_id = 1;
+}
+
+message GetNeighborsListRequest {
+}
+
+message GetNeighborResponse {
+    uint32 neighbor_id = 1;
+    RelativePosition position = 2;
+}
+
+message GetNeighborsListResponse {
+    repeated uint32 neighbors = 1;
+}
+
 message HiveMindHostApiRequest {
     oneof request{
         Bytes bytes = 1;
+        GetNeighborRequest neighbor = 2;
+        GetNeighborsListRequest neighbors_list = 3;
+
     }
 }
 
 message HiveMindHostApiResponse {
     oneof response{
-          GenericResponse generic = 1;
+        GetNeighborResponse neighbor = 1;
+        GetNeighborsListResponse neighbors_list = 2;
     }
 }
 
