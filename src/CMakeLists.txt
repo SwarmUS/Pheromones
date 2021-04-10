@@ -29,12 +29,15 @@ target_include_directories(${LIB_NAME}
 
         # Where nanopb generates it's files
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+
         )
 
 target_link_libraries(${LIB_NAME}
     PRIVATE
         protobuf-nanopb-static
 )
+
+message("nanopc path ${NANOPB_PATH}")
 
 install(TARGETS ${LIB_NAME} EXPORT ${LIB_NAME} DESTINATION "${PHEROMONES_LIB_INSTALL_DEST}")
 install(FILES ${LIB_HEADERS} DESTINATION "${PHEROMONES_INCLUDE_INSTALL_DEST}")
