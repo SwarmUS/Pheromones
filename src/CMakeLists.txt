@@ -3,7 +3,7 @@ set(LIB_ALIAS "SwarmUS::Pheromones")
 
 # Installation destinations
 set(PHEROMONES_LIB_INSTALL_DEST "lib/swarmus-pheromones")
-set(PHEROMONES_INCLUDE_INSTALL_DEST "include/swarmus-pheromones")
+set(PHEROMONES_INCLUDE_INSTALL_DEST "include/")
 
 include(DefaultMessageOptions.cmake) # not a module, need to specify "".cmake"
 configure_file(proto/message.options.in ${CMAKE_CURRENT_SOURCE_DIR}/proto/message.options)
@@ -39,5 +39,6 @@ target_link_libraries(${LIB_NAME}
 install(TARGETS ${LIB_NAME} EXPORT ${LIB_NAME} DESTINATION "${PHEROMONES_LIB_INSTALL_DEST}")
 install(FILES ${LIB_HEADERS} DESTINATION "${PHEROMONES_INCLUDE_INSTALL_DEST}")
 install(FILES swarmus-pheromones-config.cmake DESTINATION "${PHEROMONES_LIB_INSTALL_DEST}")
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/message.pb.h DESTINATION ${PHEROMONES_INCLUDE_INSTALL_DEST})
 
 install(EXPORT ${LIB_NAME} DESTINATION "${PHEROMONES_LIB_INSTALL_DEST}")
