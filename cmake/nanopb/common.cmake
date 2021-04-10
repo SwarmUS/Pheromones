@@ -12,8 +12,8 @@ function(nanopb_fetch)
 
     FetchContent_Declare(
         nanopb
-        GIT_REPOSITORY https://github.com/nanopb/nanopb
-        GIT_TAG        0.4.4
+        GIT_REPOSITORY  https://github.com/SwarmUS/nanopb
+        GIT_TAG        2a16055056c6de6aabc9cf2aa7db077eb35bc480
         GIT_PROGRESS   TRUE
     )
     set(NANOPB nanopb)
@@ -25,7 +25,7 @@ function(nanopb_fetch)
         set(FETCHCONTENT_QUIET FALSE) # To see progress
         FetchContent_Populate(${NANOPB})
     endif()
-    add_subdirectory(${${NANOPB_L}_SOURCE_DIR} ${${NANOPB_L}_BINARY_DIR} EXCLUDE_FROM_ALL)
+    add_subdirectory(${${NANOPB_L}_SOURCE_DIR} ${${NANOPB_L}_BINARY_DIR})
 
     list(APPEND CMAKE_MODULE_PATH ${${NANOPB_L}_SOURCE_DIR}/extra)
     set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} PARENT_SCOPE)
