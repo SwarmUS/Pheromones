@@ -5,3 +5,6 @@ build/
 /compile_commands.json
 
 src/proto/message.options
+
+cmake-build-debug/
+.idea/

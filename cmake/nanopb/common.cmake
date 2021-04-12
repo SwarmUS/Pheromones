@@ -12,8 +12,8 @@ function(nanopb_fetch)
 
     FetchContent_Declare(
         nanopb
-        GIT_REPOSITORY https://github.com/nanopb/nanopb
-        GIT_TAG        0.4.4
+        GIT_REPOSITORY  https://github.com/SwarmUS/nanopb
+        GIT_TAG        07fe03e09cb20973b48802b5a4c21a10b15ae166
         GIT_PROGRESS   TRUE
     )
     set(NANOPB nanopb)
