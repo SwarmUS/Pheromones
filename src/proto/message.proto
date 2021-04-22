@@ -105,7 +105,7 @@ message UserCallResponse {
     }
 }
 
-// Hivemind API
+// HivemindHost API
 // Used by the host robot, this is the API that the HM expose to the robot
 
 message Bytes {
@@ -161,6 +161,15 @@ message HiveMindHostApiResponse {
     }
 }
 
+// HiveConnectHivemind API
+// Used by the HiveMind with the HiveConnect, this is the API that the HC expose to the HM
+message HiveConnectHiveMindApi {
+    oneof message {
+        GetAgentsListRequest agents_req = 1;
+        GetAgentsListResponse agents_resp = 2;
+    }
+}
+
 // Messages used by buzz
 message BuzzMessage {
     bytes payload = 1;
@@ -171,7 +180,7 @@ message Request {
     uint32 id = 1;
     oneof message {
         UserCallRequest user_call = 2;
-        HiveMindHostApiRequest hive_api = 3;
+        HiveMindHostApiRequest hivemind_host = 3;
     }
 }
 
@@ -180,7 +189,7 @@ message Response {
     oneof message {
         GenericResponse generic = 2;
         UserCallResponse user_call = 3;
-        HiveMindHostApiResponse hive_api = 4;
+        HiveMindHostApiResponse hivemind_host = 4;
     }
 }
 
@@ -252,5 +261,6 @@ message Message {
         BuzzMessage buzz = 6;
         NetworkAPI network = 7;
         InterlocAPI interloc = 8;
+        HiveConnectHiveMindApi hiveconnect_hivemind = 9;
     }
 }
