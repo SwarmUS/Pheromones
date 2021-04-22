@@ -17,3 +17,4 @@ BuzzMessage.payload max_size:@BUZZ_PAYLOAD_SIZE@
 // HiveMindHostAPI
 Bytes.payload max_size:@BYTES_PAYLOAD_SIZE@
 GetNeighborsListResponse.neighbors max_count:@NEIGHBORS_LIST_SIZE@
+GetNeighborsListResponse.agents max_count:@AGENTS_LIST_SIZE@
