@@ -149,7 +149,7 @@ message HiveMindHostApiRequest {
         Bytes bytes = 1;
         GetNeighborRequest neighbor = 2;
         GetNeighborsListRequest neighbors_list = 3;
-        GetNeighborsListResponse agents_list = 4;
+        GetAgentsListRequest agents_list = 4;
     }
 }
 
