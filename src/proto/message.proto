@@ -164,9 +164,10 @@ message HiveMindHostApiResponse {
 // HiveConnectHivemind API
 // Used by the HiveMind with the HiveConnect, this is the API that the HC expose to the HM
 message HiveConnectHiveMindApi {
+    uint32 message_id = 1;
     oneof message {
-        GetAgentsListRequest agents_req = 1;
-        GetAgentsListResponse agents_resp = 2;
+        GetAgentsListRequest agents_req = 2;
+        GetAgentsListResponse agents_resp = 3;
     }
 }
 
