@@ -105,7 +105,7 @@ message UserCallResponse {
     }
 }
 
-// Hivemind API
+// HivemindHost API
 // Used by the host robot, this is the API that the HM expose to the robot
 
 message Bytes {
@@ -118,7 +118,7 @@ message Bytes {
 message NeighborPosition {
     float distance  = 1;
     float relative_orientation  = 2;
-    bool inLOS = 3;
+    bool in_los = 3;
 }
 
 message GetNeighborRequest {
@@ -126,6 +126,9 @@ message GetNeighborRequest {
 }
 
 message GetNeighborsListRequest {
+}
+
+message GetAgentsListRequest {
 }
 
 message GetNeighborResponse {
@@ -137,12 +140,16 @@ message GetNeighborsListResponse {
     repeated uint32 neighbors = 1;
 }
 
+message GetAgentsListResponse {
+    repeated uint32 agents = 1;
+}
+
 message HiveMindHostApiRequest {
     oneof request{
         Bytes bytes = 1;
         GetNeighborRequest neighbor = 2;
         GetNeighborsListRequest neighbors_list = 3;
-
+        GetAgentsListRequest agents_list = 4;
     }
 }
 
@@ -150,6 +157,17 @@ message HiveMindHostApiResponse {
     oneof response{
         GetNeighborResponse neighbor = 1;
         GetNeighborsListResponse neighbors_list = 2;
+        GetAgentsListResponse agents_list = 3;
+    }
+}
+
+// HiveConnectHivemind API
+// Used by the HiveMind with the HiveConnect, this is the API that the HC expose to the HM
+message HiveConnectHiveMindApi {
+    uint32 message_id = 1;
+    oneof message {
+        GetAgentsListRequest agents_req = 2;
+        GetAgentsListResponse agents_resp = 3;
     }
 }
 
@@ -163,7 +181,7 @@ message Request {
     uint32 id = 1;
     oneof message {
         UserCallRequest user_call = 2;
-        HiveMindHostApiRequest hive_api = 3;
+        HiveMindHostApiRequest hivemind_host = 3;
     }
 }
 
@@ -172,7 +190,7 @@ message Response {
     oneof message {
         GenericResponse generic = 2;
         UserCallResponse user_call = 3;
-        HiveMindHostApiResponse hive_api = 4;
+        HiveMindHostApiResponse hivemind_host = 4;
     }
 }
 
@@ -181,7 +199,7 @@ message Response {
 //and the hivemind will send you a greet back with it's id
 message Greeting{
     // Id of the board
-    uint32 id = 1;
+    uint32 agent_id = 1;
 }
 
 // NetworkAPI used to share IP address and such
@@ -244,5 +262,6 @@ message Message {
         BuzzMessage buzz = 6;
         NetworkAPI network = 7;
         InterlocAPI interloc = 8;
+        HiveConnectHiveMindApi hiveconnect_hivemind = 9;
     }
 }
