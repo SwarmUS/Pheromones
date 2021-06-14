@@ -163,11 +163,47 @@ message HiveMindHostApiResponse {
 
 // HiveConnectHivemind API
 // Used by the HiveMind with the HiveConnect, this is the API that the HC expose to the HM
+message HiveConnectNetworkAccess {
+    string ssid = 1;
+    string password = 2;
+}
+
+message HiveConnectRootNode {
+    bool is_root = 1;
+}
+
+message HiveConnectMeshEnable {
+    bool use_mesh = 1;
+}
+
+message HiveConnectNetworkConfigSetRequest {
+    HiveConnectNetworkAccess network_access = 1;
+    HiveConnectRootNode root_node = 2;
+    HiveConnectMeshEnable mesh_enable = 3;
+}
+message HiveConnectNetworkConfigSetResponse  {
+    GenericResponse response = 1;
+}
+
+message HiveConnectNetworkConfigGetRequest {}
+
+message HiveConnectNetworkConfigGetResponse {
+    HiveConnectNetworkAccess network_access = 1;
+    HiveConnectRootNode root_node = 2;
+    HiveConnectMeshEnable mesh_enable = 3;
+}
+
+
+
 message HiveConnectHiveMindApi {
     uint32 message_id = 1;
     oneof message {
         GetAgentsListRequest agents_req = 2;
         GetAgentsListResponse agents_resp = 3;
+        HiveConnectNetworkConfigSetRequest network_config_set_request = 4;
+        HiveConnectNetworkConfigSetResponse network_config_set_response = 5;
+        HiveConnectNetworkConfigGetRequest network_config_get_request = 6;
+        HiveConnectNetworkConfigGetResponse network_config_get_response = 7;
     }
 }
 

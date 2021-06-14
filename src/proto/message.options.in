@@ -18,3 +18,7 @@ BuzzMessage.payload max_size:@BUZZ_PAYLOAD_SIZE@
 Bytes.payload max_size:@BYTES_PAYLOAD_SIZE@
 GetNeighborsListResponse.neighbors max_count:@NEIGHBORS_LIST_SIZE@
 GetAgentsListResponse.agents max_count:@AGENTS_LIST_SIZE@
+
+// HiveConnectHiveMindApi
+HiveConnectNetworkAccess.ssid max_size:@NETWORK_SSID_MAX_LENGTH@
+HiveConnectNetworkAccess.password max_size:@NETWORK_PASSWORD_MAX_LENGTH@
