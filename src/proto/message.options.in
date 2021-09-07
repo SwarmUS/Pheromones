@@ -22,3 +22,7 @@ GetAgentsListResponse.agents max_count:@AGENTS_LIST_SIZE@
 // HiveConnectHiveMindApi
 HiveConnectNetworkAccess.ssid max_size:@NETWORK_SSID_MAX_LENGTH@
 HiveConnectNetworkAccess.password max_size:@NETWORK_PASSWORD_MAX_LENGTH@
+
+//InterlocAPI
+InterlocRxFrameRawAngleData.frameInfos max_count:@INTERLOC_BEEBOARDS_SIZE@
+InterlocRawAngleData.frames max_count:@INTERLOC_RAW_ANGLE_FRAMES_SIZE@
