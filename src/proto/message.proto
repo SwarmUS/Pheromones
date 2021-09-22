@@ -250,38 +250,68 @@ message NetworkAPI {
 }
 
 // Interloc API
-enum CalibrationMode {
+enum InterlocState {
     UNSUPORTED = 0;
-    INITIATOR = 1;
-    RESPONDER = 2;
+    STANDBY = 1;
+    OPERATING = 2;
+    ANGLE_CALIB_SENDER = 3;
+    ANGLE_CALIB_RECEIVER = 4;
+    TWR_CALIB_INITIATOR = 5;
+    TWR_CALIB_RESPONDER = 6;
 }
 
-message SetCalibrationDistance {
+message SetInterlocState {
+    InterlocState state = 1;
+}
+
+message ConfigureAngleCalibration {
+    uint32 numberOfFrames = 1;
+}
+
+message ConfigureTWRCalibration {
     float distance = 1;
 }
 
-message StartCalibration {
-    CalibrationMode mode = 1;
+message InterlocConfiguration {
+    oneof configurationMessage {
+        ConfigureAngleCalibration configureAngleCalibration = 1;
+        ConfigureTWRCalibration configureTWRCalibration = 2;
+    }
 }
 
-message StopCalibration {
+message InterlocRxFrameInfo {
+    uint32 beeboardPort = 1 ;
+    uint64 rxTimestamp = 2;
+    float sfdAngle = 3;
+    float accumulatorAngle = 4;
 }
 
-message CalibrationEnded {
+message InterlocRxFrameRawAngleData {
+    uint32 frameId = 1;
+    repeated InterlocRxFrameInfo frameInfos = 2;
 }
 
-message CalibrationMessage {
-    oneof call {
-        SetCalibrationDistance setDistance = 1;
-        StartCalibration startCalib = 2;
-        StopCalibration stopCalib = 3;
-        CalibrationEnded calibEnded = 4;
+message InterlocRawAngleData {
+    repeated InterlocRxFrameRawAngleData frames = 1;
+}
+
+message InterlocStateChange {
+    InterlocState previousState = 1;
+    InterlocState newState = 2;
+}
+
+message InterlocOutputMessage {
+    oneof outputMessage {
+        InterlocStateChange stateChange = 1;
+        InterlocRawAngleData rawAngleData = 2;
     }
 }
 
 message InterlocAPI {
     oneof message {
-        CalibrationMessage calibration = 1;
+        SetInterlocState setState = 1;
+        InterlocConfiguration configure = 2;
+        InterlocOutputMessage output = 3;
     }
 }
 
