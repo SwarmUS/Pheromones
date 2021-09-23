@@ -213,7 +213,7 @@ message BuzzMessage {
 }
 
 message BuzzMessages{
-    repeated BuzzMessage message = 1;
+    repeated BuzzMessage messages = 1;
 }
 
 message VmMessage {
