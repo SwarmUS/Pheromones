@@ -284,6 +284,7 @@ message InterlocRxFrameInfo {
     uint64 rxTimestamp = 2;
     float sfdAngle = 3;
     float accumulatorAngle = 4;
+    uint32 messageId = 5;
 }
 
 message InterlocRxFrameRawAngleData {
