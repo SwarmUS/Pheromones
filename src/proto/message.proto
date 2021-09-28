@@ -212,6 +212,16 @@ message BuzzMessage {
     bytes payload = 1;
 }
 
+message BuzzMessages{
+    repeated BuzzMessage messages = 1;
+}
+
+message VmMessage {
+    oneof message {
+        BuzzMessages buzz = 1;
+    }
+}
+
 // Base request to wrap all other request types
 message Request {
     uint32 id = 1;
@@ -326,7 +336,7 @@ message Message {
         Request request = 3;
         Response response = 4;
         Greeting greeting = 5;
-        BuzzMessage buzz = 6;
+        VmMessage vm = 6;
         NetworkAPI network = 7;
         InterlocAPI interloc = 8;
         HiveConnectHiveMindApi hiveconnect_hivemind = 9;
