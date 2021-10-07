@@ -117,7 +117,7 @@ message Bytes {
 
 message NeighborPosition {
     float distance  = 1;
-    float relative_orientation  = 2;
+    float azimuth  = 2;
     bool in_los = 3;
 }
 
