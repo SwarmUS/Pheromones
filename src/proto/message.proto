@@ -317,8 +317,7 @@ message InterlocStateChange {
 }
 
 message InterlocDump {
-    uint32 remoteId = 1;
-    repeated NeighborPosition positionUpdates = 2;
+    repeated GetNeighborResponse positionUpdates = 2;
 }
 
 message InterlocOutputMessage {
