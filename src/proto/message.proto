@@ -282,10 +282,15 @@ message ConfigureTWRCalibration {
     float distance = 1;
 }
 
+message ConfigureInterlocDumps {
+    bool enable = 1;
+}
+
 message InterlocConfiguration {
     oneof configurationMessage {
         ConfigureAngleCalibration configureAngleCalibration = 1;
         ConfigureTWRCalibration configureTWRCalibration = 2;
+        ConfigureInterlocDumps configureInterlocDumps = 3;
     }
 }
 
@@ -311,10 +316,16 @@ message InterlocStateChange {
     InterlocState newState = 2;
 }
 
+message InterlocDump {
+    uint32 remoteId = 1;
+    repeated NeighborPosition positionUpdates = 2;
+}
+
 message InterlocOutputMessage {
     oneof outputMessage {
         InterlocStateChange stateChange = 1;
         InterlocRawAngleData rawAngleData = 2;
+        InterlocDump interlocDump = 3;
     }
 }
 
