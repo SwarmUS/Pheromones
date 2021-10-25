@@ -286,11 +286,28 @@ message ConfigureInterlocDumps {
     bool enable = 1;
 }
 
+message ConfigureAngleParameters {
+    int32 anglePairId = 1;
+
+    repeated int32 antennas = 2;
+    repeated int32 slopeDecision = 3;
+
+    float tdoaNormalizationFactor = 4;
+    repeated float tdoaSlopes = 5;
+    repeated float tdoaIntercepts = 6;
+
+    float pdoaNormalizationFactor = 7;
+    float pdoaSlope = 8;
+    repeated float pdoaIntercepts = 9;
+    repeated float pdoaOrigins = 10;
+}
+
 message InterlocConfiguration {
     oneof configurationMessage {
         ConfigureAngleCalibration configureAngleCalibration = 1;
         ConfigureTWRCalibration configureTWRCalibration = 2;
         ConfigureInterlocDumps configureInterlocDumps = 3;
+        ConfigureAngleParameters configureAngleParameters = 4;
     }
 }
 
