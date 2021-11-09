@@ -292,14 +292,9 @@ message ConfigureAngleParameters {
     repeated int32 antennas = 2;
     repeated int32 slopeDecision = 3;
 
-    float tdoaNormalizationFactor = 4;
-    repeated float tdoaSlopes = 5;
-    repeated float tdoaIntercepts = 6;
-
-    float pdoaNormalizationFactor = 7;
-    float pdoaSlope = 8;
-    repeated float pdoaIntercepts = 9;
-    repeated float pdoaOrigins = 10;
+    float pdoaNormalizationFactor = 4;
+    repeated float pdoaSlopes = 5;
+    repeated float pdoaIntercepts = 6;
 }
 
 message InterlocConfiguration {
