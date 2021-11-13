@@ -30,7 +30,5 @@ InterlocRawAngleData.frames max_count:@INTERLOC_RAW_ANGLE_FRAMES_SIZE@
 InterlocDump.positionUpdates max_count:@INTERLOC_DUMP_MAX_UPDATES_SIZE@
 ConfigureAngleParameters.antennas max_count:@INTERLOC_ANTENNAS_PER_PAIR@
 ConfigureAngleParameters.slopeDecision max_count:@INTERLOC_MAX_ANTENNA_PAIRS@
-ConfigureAngleParameters.tdoaSlopes max_count:@INTERLOC_MAX_TDOA_SLOPES@
-ConfigureAngleParameters.tdoaIntercepts max_count:@INTERLOC_MAX_TDOA_SLOPES@
+ConfigureAngleParameters.pdoaSlopes max_count:@INTERLOC_MAX_PDOA_SLOPES@
 ConfigureAngleParameters.pdoaIntercepts max_count:@INTERLOC_MAX_PDOA_SLOPES@
-ConfigureAngleParameters.pdoaOrigins max_count:@INTERLOC_MAX_PDOA_SLOPES@
