@@ -300,6 +300,8 @@ message ConfigureAngleParameters {
     float pdoaSlope = 8;
     repeated float pdoaIntercepts = 9;
     repeated float pdoaOrigins = 10;
+
+    float boardOrientationOffset = 11;
 }
 
 message InterlocConfiguration {
